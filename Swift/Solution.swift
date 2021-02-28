@@ -85,5 +85,36 @@ class Solution {
         return reverse
     }
     
+    /**
+    *  9 - Palindrome Number
+    *  https://leetcode.com/problems/palindrome-number/
+    */
+    func isPalindrome(_ x: Int) -> Bool {
+
+        let strNum = Array(String(x))
+        var output = ""
+        var reverse = 0
+
+        do
+        {
+            for i in (0...(strNum.count - 1)).reversed() {
+                let value = strNum[i]
+
+                if (x < 0 && value == "-") {
+                    continue
+                }
+
+                output = "\(output)\(value)"
+            }
+
+            reverse = (x < 0) ? (Int(output)! * -1) : Int(output)!
+        } catch {
+            reverse = 0
+        }
+
+        return (reverse == x && x >= 0)
+    
+    }
+    
     
 }
