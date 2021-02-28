@@ -42,4 +42,48 @@ class Solution {
 
         return highest
     }
+    
+     /**
+     *  7 - Reverse Integer
+     *  https://leetcode.com/problems/reverse-integer/
+     */
+     func reverse(_ x: Int) -> Int {
+
+        var reverse = 0
+
+        if (x >= Int(pow(Double(2), Double(31))) - 1)
+        {
+            return 0
+        }
+        else if (x <= (Int(pow(Double(-2),Double(31)))))
+        {
+            return 0
+        }
+
+        do {
+            var output = ""
+            let characters = Array(String(x))
+
+            for i in (0...(characters.count - 1)).reversed() {
+
+                var value = characters[i]
+
+                if (x < 0 && value == "-") {
+                    continue
+                }
+
+                output = "\(output)\(value)"
+
+            }
+
+            reverse = (x < 0) ? (Int(output)! * -1) : (Int(output)!)
+
+        } catch {
+            reverse = 0
+        }
+
+        return reverse
+    }
+    
+    
 }
