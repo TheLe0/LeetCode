@@ -43,11 +43,11 @@ class Solution {
         return highest
     }
     
-     /**
-     *  7 - Reverse Integer
-     *  https://leetcode.com/problems/reverse-integer/
-     */
-     func reverse(_ x: Int) -> Int {
+    /**
+    *  7 - Reverse Integer
+    *  https://leetcode.com/problems/reverse-integer/
+    */
+    func reverse(_ x: Int) -> Int {
 
         var reverse = 0
 
