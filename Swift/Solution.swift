@@ -86,6 +86,47 @@ class Solution {
     }
     
     /**
+    *  8 - String to Integer (atoi)
+    *  https://leetcode.com/problems/string-to-integer-atoi/
+    */
+    func myAtoi(_ str: String) -> Int {
+        var newStr = str.trimmingCharacters(in: .whitespaces)
+        var isNegative = false
+        var result = 0
+        
+        if newStr.first == "+" || newStr.first == "-" {
+            if newStr.first == "-" {
+                isNegative = true
+            }
+            newStr.removeFirst()
+        }
+        
+        var arr = [Character]()
+        for c in newStr {
+            if "0123456789".contains(c) {
+                arr.append(c)
+            } else {
+                break
+            }
+        }
+        guard var double = Double(String(arr)) else {
+            return 0
+        }
+        
+        if isNegative {
+            double = -double
+        }
+        if double > Double(Int32.max) {
+            result = Int(Int32.max)
+        } else if double < Double(Int32.min) {
+            result = Int(Int32.min)
+        } else {
+            result = Int(double)
+        }
+        return result
+    }
+    
+    /**
     *  9 - Palindrome Number
     *  https://leetcode.com/problems/palindrome-number/
     */
@@ -204,6 +245,5 @@ class Solution {
         }
         
         return mDigits
-    }
-   
+    } 
 }
