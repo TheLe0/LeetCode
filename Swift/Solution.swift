@@ -177,5 +177,33 @@ class Solution {
         
         return res
     }
+    
+    /**
+    *  66 - Plus One
+    *  https://leetcode.com/problems/plus-one/
+    */
+    func plusOne(_ digits: [Int]) -> [Int] {
+        var flag = false
+        var mDigits = digits
+        mDigits[mDigits.count - 1] += 1
+        
+        for i in mDigits.indices.reversed() {
+            if flag {
+                mDigits[i] += 1
+            }
+            if mDigits[i] >= 10 {
+                flag = true
+                mDigits[i] %= 10
+            } else {
+                flag = false
+            }
+        }
+        
+        if flag {
+            mDigits.insert(1, at: 0)
+        }
+        
+        return mDigits
+    }
    
 }
