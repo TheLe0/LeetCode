@@ -147,5 +147,35 @@ class Solution {
         return res
     }
     
-    
+    /**
+    *  58 - Length of Last Word
+    *  https://leetcode.com/problems/length-of-last-word/
+    */
+    func lengthOfLastWord(_ s: String) -> Int {
+        var res = 0
+        var sChars = Array(s)
+        
+        guard sChars.count != 0 else {
+            return 0
+        }
+        
+        for i in (0...(sChars.count - 1)).reversed() {
+            if res == 0 {
+                if sChars[i] == " " {
+                    continue
+                } else {
+                    res += 1
+                }
+            } else {
+                if sChars[i] == " " {
+                    break
+                } else {
+                    res += 1
+                }
+            }
+        }
+        
+        return res
+    }
+   
 }
