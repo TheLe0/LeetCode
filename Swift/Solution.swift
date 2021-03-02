@@ -29,6 +29,58 @@ class Solution {
     }
     
     /**
+    *  2. Add Two Numbers
+    *  https://leetcode.com/problems/add-two-numbers/
+    */
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        
+        let first:ListNode = ListNode(0)
+        var link = first
+        var carry = 0
+        var node1 = l1
+        var node2 = l2
+        
+        while node1 != nil || node2 != nil {
+            switch(node1, node2) {
+            case (.some(let firstNode), .some(let secondNode)):
+                let sum = firstNode.val + secondNode.val + carry
+                let value = sum % 10
+                carry = Int(sum / 10)
+                let node = ListNode(value)
+                link.next = node
+                node1 = firstNode.next
+                node2 = secondNode.next
+                link = node
+            case (.some(let firstNode), nil):
+                let sum = firstNode.val + carry
+                let value = sum % 10
+                carry = Int(sum / 10)
+                let node = ListNode(value)
+                link.next = node
+                node1 = firstNode.next
+                link = node
+            case (nil, .some(let secondNode)):
+                let sum = secondNode.val + carry
+                let value = sum % 10
+                carry = Int(sum / 10)
+                let node = ListNode(value)
+                link.next = node
+                node2 = secondNode.next
+                link = node
+            default:
+                print("oo")
+            }
+        }
+        
+        if carry > 0 {
+            let node = ListNode(carry)
+            link.next = node
+        }
+        
+        return first.next    
+    }
+    
+    /**
     *  3 - Longest Substring Without Repeating Characters
     *  https://leetcode.com/problems/longest-substring-without-repeating-characters/
     */
