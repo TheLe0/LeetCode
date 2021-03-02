@@ -249,6 +249,14 @@ class Solution {
     }
     
     /**
+    *  50 - Pow(x, n)
+    *  https://leetcode.com/problems/powx-n/
+    */
+    func myPow(_ x: Double, _ n: Int) -> Double {
+        return pow(x,Double(n))  
+    }
+    
+    /**
     *  58 - Length of Last Word
     *  https://leetcode.com/problems/length-of-last-word/
     */
