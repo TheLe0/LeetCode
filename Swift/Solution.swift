@@ -249,6 +249,29 @@ class Solution {
     }
     
     /**
+    *  26 - Remove Duplicates from Sorted Array
+    *  https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+    */
+    func removeDuplicates(_ nums: inout [Int]) -> Int {
+        guard  nums.count >= 2 else {
+            return nums.count
+        }
+    
+        var arr = [Int]()
+        var beforeNum = nums[0]
+        arr.append(beforeNum)
+        for i in 1..<nums.count{
+           if beforeNum != nums[i]{
+               arr.append(nums[i])
+               beforeNum = nums[i]
+           }
+        }
+        nums = arr
+
+        return nums.count   
+    }
+    
+    /**
     *  50 - Pow(x, n)
     *  https://leetcode.com/problems/powx-n/
     */
