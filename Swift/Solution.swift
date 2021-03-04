@@ -104,6 +104,32 @@ class Solution {
     }
     
     /**
+    *  4 - Median of Two Sorted Arrays
+    *  https://leetcode.com/problems/median-of-two-sorted-arrays/
+    */
+    func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
+        var i = 0, j = 0, arr = [Int]()
+        while i < nums1.count && j < nums2.count {
+            if nums1[i] < nums2[j] {
+                arr.append(nums1[i])
+                i += 1
+            } else {
+                arr.append(nums2[j])
+                j += 1
+            }
+        }
+        arr.append(contentsOf: nums1[i..<nums1.count])
+        arr.append(contentsOf: nums2[j..<nums2.count])
+        
+        if (arr.count % 2 == 0) {
+            return Double(arr[arr.count / 2] + arr[arr.count / 2 - 1]) / 2
+        } else {
+            return Double(arr[arr.count / 2])
+        }
+    }
+    
+    
+    /**
     *  7 - Reverse Integer
     *  https://leetcode.com/problems/reverse-integer/
     */
