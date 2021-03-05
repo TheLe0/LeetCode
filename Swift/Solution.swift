@@ -302,6 +302,29 @@ class Solution {
     }
     
     /**
+    *  27 - Remove Element
+    *  https://leetcode.com/problems/remove-element/
+    */
+    func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+        
+        guard nums.count > 0 else {
+            return 0
+        }
+        
+        var i = 0
+
+        repeat {
+            if (nums[i] == val) {
+                nums.remove(at: i)
+            } else {
+                i += 1
+            }
+        } while (i < nums.count)
+
+        return nums.count
+    }
+    
+    /**
     *  50 - Pow(x, n)
     *  https://leetcode.com/problems/powx-n/
     */
