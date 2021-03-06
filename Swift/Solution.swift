@@ -325,6 +325,39 @@ class Solution {
     }
     
     /**
+    *  28 - Implement strStr()
+    *  https://leetcode.com/problems/powx-n/
+    */
+    func strStr(_ haystack: String, _ needle: String) -> Int {
+        
+        if needle == "" {
+            return 0
+        }
+
+        if !(needle.count <= haystack.count) {
+            return -1
+        }
+
+        let haystackList = Array(haystack)
+        let needleList = Array(needle)
+
+        let checkLimit = haystackList.count - needleList.count
+
+        var needleIndex = -1
+
+        for i in 0...checkLimit {
+            let sliceLength = i + needleList.count - 1
+            let slice = Array(haystackList[i...sliceLength])
+            if slice == needleList {
+                needleIndex = i
+                break
+            }
+        }
+
+        return needleIndex
+    }
+    
+    /**
     *  50 - Pow(x, n)
     *  https://leetcode.com/problems/powx-n/
     */
