@@ -358,6 +358,14 @@ class Solution {
     }
     
     /**
+    *  35 - Search Insert Position
+    *  https://leetcode.com/problems/search-insert-position/
+    */
+    func searchInsert(_ nums: [Int], _ target: Int) -> Int {
+        nums.filter({ $0 < target }).count 
+    }
+    
+    /**
     *  50 - Pow(x, n)
     *  https://leetcode.com/problems/powx-n/
     */
