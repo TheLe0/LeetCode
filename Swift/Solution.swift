@@ -430,5 +430,13 @@ class Solution {
         }
         
         return mDigits
-    } 
+    }
+    
+    /**
+    *  69 - Sqrt(x)
+    *  https://leetcode.com/problems/sqrtx/
+    */
+    func mySqrt(_ x: Int) -> Int {
+        return Int(Double(x).squareRoot())
+    }
 }
