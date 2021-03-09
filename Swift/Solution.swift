@@ -128,6 +128,31 @@ class Solution {
         }
     }
     
+    /**
+    *  6 - ZigZag Conversion
+    *  https://leetcode.com/problems/zigzag-conversion/
+    */
+    func convert(_ s: String, _ numRows: Int) -> String {
+        guard !s.isEmpty, numRows > 1 else { return s }
+    
+        let repeatingPatternCount = numRows * 2 - 2
+        var rows = [String](repeating: "", count: numRows)
+    
+        func indexWithinColumn(index: Int) -> Int {
+            let offset = index % repeatingPatternCount
+            if offset >= numRows {
+                return 2*numRows - offset - 2
+            }
+            return offset
+        }
+    
+        for (index, element) in s.enumerated() {
+            let rowToAppend = indexWithinColumn(index: index)
+            rows[rowToAppend].append(element)
+        }
+        return rows.joined()
+    }
+    
     
     /**
     *  7 - Reverse Integer
