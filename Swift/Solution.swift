@@ -383,6 +383,29 @@ class Solution {
     }
     
     /**
+    *  32 -  Longest Valid Parentheses
+    *  https://leetcode.com/problems/longest-valid-parentheses/
+    */
+    func longestValidParentheses(_ s: String) -> Int {
+        var sArray = Array(s)
+        var maxLength = 0
+
+        for i in 0..<sArray.count {
+            var count = 0
+            for j in i..<sArray.count {
+                count += sArray[j] == "(" ? 1 : -1
+
+                if count < 0 { break }
+                if count == 0 {
+                    maxLength = max(maxLength, j - i + 1)
+                }
+            }
+        }
+
+        return maxLength
+    }
+    
+    /**
     *  35 - Search Insert Position
     *  https://leetcode.com/problems/search-insert-position/
     */
