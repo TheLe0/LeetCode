@@ -503,5 +503,30 @@ class Solution {
         }
     }
     
+    /**
+    *  98 - Validate Binary Search Tree
+    *  https://leetcode.com/problems/validate-binary-search-tree/
+    */
+    func isValidBST(_ root: TreeNode?) -> Bool {
+        
+        var stack = [TreeNode]()
+        var prevVal = Int.min
+        var node = root
+    
+        while node != nil || !stack.isEmpty {
+            while let cur = node {
+                stack.append(cur)
+                node = cur.left
+            }
+    
+            if let cur = stack.popLast() {
+                if cur.val <= prevVal { return false }
+                prevVal = cur.val
+                node = cur.right
+            }
+        }
+    
+        return true
+    }
     
 }
