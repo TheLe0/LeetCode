@@ -581,8 +581,21 @@ class Solution {
 			}
 		}
 
-		return dp[s.count][p.count]
-            
+		return dp[s.count][p.count]       
+    }
+	
+    /**
+    *  367 - Valid Perfect Square
+    *  https://leetcode.com/problems/valid-perfect-square/
+    */
+    func isPerfectSquare(_ num: Int) -> Bool {
+
+        guard num > 0 else { return false }
+        guard num < 2147483648 else { return false }
+        var i = num
+        while i*i > num { i /= 2 }
+        while i*i < num { i += 1 }
+        return i*i == num
     }
     
 }
