@@ -598,4 +598,21 @@ class Solution {
         return i*i == num
     }
     
+   /**
+    *  520 - Detect Capital
+    *  https://leetcode.com/problems/valid-perfect-square/
+    */
+    func detectCapitalUse(_ word: String) -> Bool {
+        
+	 /**
+	 * In Unicode the Upper charactes become before the non-upper ones,
+	 *  so all the uppers are before the "Z"
+	 **/
+	let zVal = Character("Z") 
+	    
+        var chars = Array(word)
+        let upper = chars.filter({ $0 <= zVal }).count
+        return (upper==0) || (upper==chars.count) || ((upper==1) && (chars[0] <= zVal))
+    }
+    
 }
